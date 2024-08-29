@@ -3,6 +3,10 @@ from .models import Client, Project
 from .serializers import ClientSerializer, ProjectSerializer
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the Project Management API!")
 
 class ClientListCreateView(generics.ListCreateAPIView):
     queryset = Client.objects.all()
